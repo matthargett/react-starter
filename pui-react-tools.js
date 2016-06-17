@@ -1,5 +1,5 @@
 module.exports = {
   webpack: {
-    integration: {devtool: 'source-map'}
+    integration: { devtool: 'source-map' }
   }
 };

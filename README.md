@@ -7,7 +7,13 @@ React Starter is a todoApp project with much of the tooling in place you would n
 
 ## Getting Started
 
-First, make sure you have node version 4+ (it may work with older versions of node, but node-sass less likely to install correctly).
+First, make sure you have:
+
+* Node version 4+ (it may work with older versions of node, but node-sass less likely to install correctly).
+* Npm version 3+
+
+If either of these is an earlier version, you will likely see errors when you run the code. 
+If you have installed and then realize you need to change either of these, you will need to `rm -rf node_modules` and `npm install` to make sure dependencies are correctly updated and installed.
 
 ```
 git clone git@github.com:pivotal-cf/react-starter.git && cd react-starter
@@ -56,6 +62,8 @@ The spec_helper re-creates a div with id="root" (referenced by `root`) where you
 
 Testing the results of rendering is made easier with [jasmine_dom_matchers](https://github.com/charleshansen/jasmine_dom_matchers),
 this is where `toHaveText` is defined.
+
+We have also provided some custom matchers with [pivotal-js-jasmine-matchers](https://github.com/pivotal-cf/pivotal-js/tree/master/packages/pivotal-js-jasmine-matchers).
 
 #### Factories
 
@@ -134,3 +142,9 @@ We recommend having a `setRoute` dispatch event for easy debugging. We have prov
 We have also provided a mock router for use in test in `spec/app/support/mock_router.js`.
 The mock router is installed in `spec/app/spec_helper.js`.
 If you do not mock the router, it will change your browser URL while running Jasmine.
+
+#### API
+
+We have provided an example workflow that talks to an api, using the JSONPlaceholder api and `window.fetch`.
+Using an api requires asynchronous testing, which can be difficult.
+We use [MockPromises](https://github.com/charleshansen/mock-promises) to deal with most of it.
